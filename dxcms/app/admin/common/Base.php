@@ -13,7 +13,7 @@ class Base extends Controller{
       // halt($controller);
         if ($controller != "Login" && $controller != "Captcha"){
             if (!session('uid')){
-                $this->error('请先登录');
+                $this->redirect('/admin/login');
             }
         }
 

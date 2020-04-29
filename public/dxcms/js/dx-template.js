@@ -128,6 +128,50 @@ function dx_openWindowParent(title, url, w, h) {
 	});
 }
 
+//开始
+function dx_openStart(title, url, w, h) {
+	var window_width	= $(window).width();
+
+	if (title == null || title == '') {
+		title = false;
+	};
+	if (url == null || url == '') {
+		url = "404.html";
+	};
+
+	if(window_width > 767){
+		if (w == null || w == '') {
+			w = ($(window).width() * .85);
+		};
+		if (h == null || h == '') {
+			h = ($(window).height()) * .85;
+		};
+	}else{
+		if (w == null || w == '') {
+			w = ($(window).width() * .96);
+		};
+		if (h == null || h == '') {
+			h = ($(window).height()) * .96;
+		};
+	}
+
+
+	layer.open({
+		type: 2,
+		area: [w + 'px', h + 'px'],
+		fix: false,
+		offset: ['10px','0','0','60px'],
+		skin: 'layui-layer-molv',
+		maxmin: true,
+		shadeClose: true,
+		shade: 0.5,
+		title: title,
+		content: url
+	});
+}
+
+
+
 // 关闭子窗口 并刷新父窗口
 function dx_closeWindow() {
 	window.parent.location.reload(); //刷新父页面
